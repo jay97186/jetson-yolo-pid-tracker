@@ -12,8 +12,8 @@ This repository includes the supplied Python programs, experiment media, and Eng
 | `src/test_servo.py` | Original PCA9685 channel 0 servo sweep test |
 | [English meeting report](docs/meeting-report-en.md) | Presentation-based experiment summary and future plans |
 | [Original presentation PDF](docs/meeting-report-original.pdf) | Snapshot of the source slides, in their original language |
-| `media/images/` | Original filtered/unfiltered control-flow diagrams and setup photograph |
-| `media/videos/` | Original demonstration recordings and lossless parts for the largest recording |
+| `media/images/` | Original filtered/unfiltered control-flow diagrams |
+| [Media index](media/README.md) | Original demonstration recordings and setup photograph on Drive |
 | `SOURCE_MANIFEST.csv` | Original names, source URLs, sizes, paths, and SHA-256 hashes |
 
 ## Control loop
@@ -73,7 +73,7 @@ The source does not specify exact JetPack or package versions. Use PyTorch and c
 
 ## Findings from the presentation
 
-The report compares proportional gains of 0.001, 0.003, and 0.005. It identifies 0.003 as the best balance between speed and stability in the reported setup. A gain of 0.005 reaches the setpoint fastest but produces persistent oscillation. A gain of 0.001 responds more slowly.
+The report compares proportional gains of 0.001, 0.003, and 0.005 with `Ki = Kd = 0` in the conclusion chart. It identifies 0.003 as the best balance between speed and stability in the reported setup. A gain of 0.005 reaches the setpoint fastest but produces persistent oscillation. A gain of 0.001 responds more slowly. These comparison settings differ from the supplied program's nonzero integral and derivative gains.
 
 The report also discusses EMA and moving-average filtering, with filtered examples using dead zones of 40 pixels for 5 seconds, 10 pixels for 5 seconds, and 10 pixels for 12 seconds. These are historical experiment settings. The provided Python file has no EMA or moving-average tracking filter and no `r` recording handler, although the report describes recording with `r`. Its default dead zone is 80 pixels.
 
@@ -81,16 +81,16 @@ The report also discusses EMA and moving-average filtering, with filtered exampl
 
 ![Filtered control-flow diagram](media/images/pidfiltered.png)
 
-No raw numerical experiment dataset or exact filter parameters accompany the two diagrams. The published files preserve the supplied programs and recordings. This repository organization did not rerun hardware experiments.
+No raw numerical experiment dataset or exact filter parameters accompany the two diagrams. The published code preserves the supplied programs, and the media index points to the original recordings. This repository organization did not rerun hardware experiments.
 
 ## Demonstration recordings
 
-- [IMG_6710.MOV](media/videos/IMG_6710.MOV)
-- [IMG_6691.MOV](media/videos/IMG_6691.MOV)
-- [MP4 recording](media/videos/video_606378700740493636-BBkoy214.MP4)
-- `IMG_6699.MOV` is stored in two lossless parts to fit GitHub's browser upload limit. Restore it with `python3 tools/restore_video.py` from the repository root. The script checks its original SHA-256 hash.
+- [IMG_6710.MOV](https://drive.google.com/file/d/11ECCh_QwN_erqZu5QVWSBysW1RJnEC1K/view)
+- [IMG_6691.MOV](https://drive.google.com/file/d/1lkYVN_TQzwiYlkSzTpEBsR72Xop0lsTs/view)
+- [MP4 recording](https://drive.google.com/file/d/1163j8I0Ikpx2VL0g75Zx9r_fEx3yX1J1/view)
+- [IMG_6699.MOV](https://drive.google.com/file/d/1fa3LoKCoudypH725iaytnXFa0bdinB8B/view)
 
-The source folder does not map individual recordings to specific PID/filter settings, so their original filenames remain intact.
+Videos and the original HEIC photograph remain on Drive and are indexed in this repository. Their access follows the source files' Drive sharing settings. The source folder does not map individual recordings to specific PID/filter settings, so their original filenames remain intact.
 
 ## Future work from the report
 
