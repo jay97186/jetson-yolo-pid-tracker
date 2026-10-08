@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.pt
+media/videos/IMG_6699.MOV
