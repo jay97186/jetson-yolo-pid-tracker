@@ -24,7 +24,7 @@ The presentation describes comparing three PID configurations and starting recor
 
 ## Digital filtering and demonstrations (slides 15–22)
 
-The report introduces exponential moving average (EMA) and moving average filtering, followed by unfiltered and filtered demonstrations. The labeled filtered examples use:
+The report introduces exponential moving average (EMA) and moving average filtering, followed by unfiltered and filtered demonstrations. Slide 16 gives `y[n] = alpha*x[n] + (1-alpha)*y[n-1]` and illustrates `alpha = 0.2`. Slide 17 shows a seven-sample moving average, with `h[n] = 1/7` for `0 <= n <= 6`. These illustrated filter designs are absent from the supplied program. The slides do not establish a complete parameter record for every recording. The labeled filtered examples use:
 
 | Example | Dead zone | Duration |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ The report introduces exponential moving average (EMA) and moving average filter
 | Second filtered example | 10 pixels | 5 seconds |
 | Third filtered example | 10 pixels | 12 seconds |
 
-The provided tracker does not implement these measurement filters. Its configured dead zone is 80 pixels. The source includes two control-flow diagrams but no raw time-series data, filter coefficients, or complete configuration records for each video.
+The provided tracker does not implement these measurement filters. Its configured dead zone is 80 pixels. The source includes two control-flow diagrams but no raw time-series data or complete configuration records for each video.
 
 ## Conclusion (slide 23)
 
@@ -42,7 +42,7 @@ The provided tracker does not implement these measurement filters. Its configure
 | `Kp = 0.003` | Better balance of speed and stability |
 | `Kp = 0.005` | Fastest approach to the setpoint, with persistent oscillation and no stable convergence |
 
-These conclusions apply to the reported setup. The slides do not supply numerical settling-time or overshoot measurements. The archived source uses `KP = 0.003`, `KI = 0.005`, and `KD = 0.0001`.
+The chart legends on slide 23 set `Ki = 0` and `Kd = 0` for all three comparisons, so this figure compares proportional-only settings. These conclusions apply to the reported setup. The slides do not supply numerical settling-time or overshoot measurements. The archived source uses `KP = 0.003`, `KI = 0.005`, and `KD = 0.0001`, which differs from the chart's comparison configuration.
 
 ## Future plan (slide 24)
 
